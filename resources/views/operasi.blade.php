@@ -19,7 +19,7 @@
                     <form action="/hitungtabung" method="POST">
                             @csrf
                                 <div class="form-group">
-                                    <input type="number" step="any" name="jari_jari" class="form-control" placeholder="Luas Alas">
+                                    <input type="number" step="any" name="total_luas" class="form-control" placeholder="Luas Alas">
                                 </div>
                                 <div class="form-group">
                                     <input type="number" step="any" name="tinggi" class="form-control" placeholder="Tinggi">
