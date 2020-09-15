@@ -21,5 +21,11 @@ Route::get('/', function () {
 //     return view('operasi');
 // });
 
-Route::post('/kalkulator', 'KalkulatorController@calculate');
+// Route::post('/kalkulator', 'KalkulatorController@calculate');
+Route::post('/hitungtabung', 'KalkulatorController@calculate_tabung');
+
+Route::post('/hitungbola', 'KalkulatorController@calculate_bola');
+
+Route::post('/hitungkerucut', 'KalkulatorController@calculate_kerucut');
+
 
