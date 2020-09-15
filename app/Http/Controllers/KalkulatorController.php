@@ -9,13 +9,10 @@ class KalkulatorController extends Controller
     // Menghitung Tabung
     public function calculate_tabung(Request $request)
     {
-        $r = $request->input('jari_jari');
+        $total_luas = $request->input('total_luas');
         $t = $request->input('tinggi');
 
-        $total_luas = $r * $r;
-
         $result = $total_luas * $t;
-        
 
         return redirect('/')->with('info', 'Hasil Volume Tabung adalah : ' .$result);
     }
