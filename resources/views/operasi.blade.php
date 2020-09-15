@@ -7,43 +7,81 @@
     <title>Kalkulator</title>
 </head>
 <body>
-    <div class="container mt-5 p-5">
-        <form action="/kalkulator" method="POST">
-            @csrf
-            <div class="row">
-                <div class="col-md-3">
-                    <input type="number" step="any" name="bil_1" class="form-control">
-                </div>
-                <div class="col-md-3">
-                    <input type="number" step="any" name="bil_2" class="form-control">
-                </div>
-                <div class="col-md-3" >
-                    <select name="operasi" class="form-control">
-                        <option value="tambah">+</option>
-                        <option value="kurang">-</option>
-                        <option value="kali">x</option>
-                        <option value="bagi">:</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <button type="submit" class="btn btn-info">Cari Hasil</button>
-                </div>
+    <div class="container mt-5 mb-5">
+        <h1>Kalkulator Rumus</h1>
+    </div>
+
+    <!-- Rumus Volume Tabung -->
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <h4 class="mb-3">Tabung</h4>
+                    <form action="/hitungtabung" method="POST">
+                            @csrf
+                                <div class="form-group">
+                                    <input type="number" step="any" name="jari_jari" class="form-control" placeholder="Luas Alas">
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" step="any" name="tinggi" class="form-control" placeholder="Tinggi">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">Cari Hasil</button>
+                                </div>
+                    </form>
+                    @if(session('info'))
+                        <div class="alert alert-info">
+                            {{ session('info') }}
+                        </div>
+                    @endif
             </div>
-        </form>
-
-        <div class="row mt-5">
-            <div class="col-md-2">
-
-            </div> 
-            <div class="col-md-6">
-                @if(session('info'))
+            <div class="col-4">
+                    <h4 class="mb-3">Bola</h4>
+                    <form action="/hitungbola" method="POST">
+                        @csrf
+                            <div class="form-group">
+                                <input type="number" step="any" name="empatpertiga" class="form-control" placeholder="4/3" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" step="any" name="ro" class="form-control" placeholder="22/7" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" step="any" name="jari_jari" class="form-control" placeholder="jari jari (auto r^3)">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-danger">Cari Hasil</button>
+                            </div>
+                    </form>
+                    @if(session('info_hasil_volume_bola'))
+                        <div class="alert alert-info">
+                            {{ session('info_hasil_volume_bola') }}
+                        </div>
+                    @endif
+            </div>
+            <div class="col-4">
+                <h4 class="mb-3">Bola</h4>
+                <form action="/hitungkerucut" method="POST">
+                    @csrf
+                        <div class="form-group">
+                            <input type="number" step="any" name="satupertiga" class="form-control" placeholder="1/3" readonly="readonly">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" step="any" name="ro" class="form-control" placeholder="22/7" readonly="readonly">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" step="any" name="jari_jari" class="form-control" placeholder="jari jari (auto r^2)">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" step="any" name="tinggi" class="form-control" placeholder="Tinggi">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Cari Hasil</button>
+                        </div>
+                </form>
+                @if(session('hasil_volume_kerucut'))
                     <div class="alert alert-info">
-                        {{ session('info') }}
+                        {{ session('hasil_volume_kerucut') }}
                     </div>
                 @endif
-            </div>
-            <div class="col-md-2">
-            
             </div>
         </div>
     </div>
