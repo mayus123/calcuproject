@@ -19,7 +19,7 @@
                     <form action="/hitungtabung" method="POST">
                             @csrf
                                 <div class="form-group">
-                                    <input type="number" step="any" name="total_luas" class="form-control" placeholder="Luas Alas">
+                                    <input type="number" step="any" name="total_luas" class="form-control" placeholder="Luas Alas (Auto ^2 dari jari jari)">
                                 </div>
                                 <div class="form-group">
                                     <input type="number" step="any" name="tinggi" class="form-control" placeholder="Tinggi">
@@ -58,7 +58,7 @@
                     @endif
             </div>
             <div class="col-4">
-                <h4 class="mb-3">Bola</h4>
+                <h4 class="mb-3">Kerucut</h4>
                 <form action="/hitungkerucut" method="POST">
                     @csrf
                         <div class="form-group">
